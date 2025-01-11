@@ -3,6 +3,7 @@ def choose_conversion_type():
         prompt = int(input("""Choose a prompt by pressing 1 or 2: 
         1) Fahrenheit to Celsius
         2) Celsius to Fahrenheit
+        3) Exit Program
         """))
         if prompt == 1:
             f_to_c()
@@ -10,6 +11,9 @@ def choose_conversion_type():
         elif prompt == 2:
             c_to_f()
             break
+        elif prompt == 3:
+            print("Program is closing...")
+            exit()
         else:
             print("Only enter the numbers '1' or '2'")      
 
