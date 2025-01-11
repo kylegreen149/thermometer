@@ -1,10 +1,10 @@
 def choose_conversion_type():
     while True:
-        prompt = int(input("""Choose a prompt by pressing 1 or 2: 
-        1) Fahrenheit to Celsius
-        2) Celsius to Fahrenheit
-        3) Exit Program
-        """))
+        prompt = int(input("""Choose a prompt by pressing 1, 2 or 3: 
+1) Fahrenheit to Celsius
+2) Celsius to Fahrenheit
+3) Exit Program
+"""))
         if prompt == 1:
             f_to_c()
             break
