@@ -18,10 +18,15 @@ def f_to_c():
         temp = int(input("Enter the temperature you would like to convert from Fahrenheit to Celsius: "))
         if isinstance(temp, int):
             converted_temp = int((temp - 32) * 5/9)
-            print(f"{temp}° F is {converted_temp}° C!")
+            print(f"{temp}°F is {converted_temp}°C!")
         break
 
 def c_to_f():
-    pass
+    while True:
+        temp = int(input("Enter the temperature you would like to convert from Celsius to Fahrenheit: "))
+        if isinstance(temp, int):
+            converted_temp = int((temp * 9/5) + 32)
+            print(f"{temp}°C is {converted_temp}°F!")
+        break
 
 choose_conversion_type()
