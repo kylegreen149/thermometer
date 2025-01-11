@@ -16,17 +16,26 @@ def choose_conversion_type():
 def f_to_c():
     while True:
         temp = int(input("Enter the temperature you would like to convert from Fahrenheit to Celsius: "))
-        if isinstance(temp, int):
-            converted_temp = int((temp - 32) * 5/9)
-            print(f"{temp}°F is {converted_temp}°C!")
+        converted_temp = int((temp - 32) * 5/9)
+        print(f"{temp}°F is {converted_temp}°C!")
+        print("")
         break
+
+    while True:
+        prompt = input("Do you wish to continue converting from Fahrenheit to Celsius (Y/N):")
+        if prompt.upper() == "Y":
+           f_to_c() 
+        elif prompt.upper() == "N":
+            choose_conversion_type()
+        else:
+            print("Enter 'Y' or 'N' only")
+            continue
 
 def c_to_f():
     while True:
         temp = int(input("Enter the temperature you would like to convert from Celsius to Fahrenheit: "))
-        if isinstance(temp, int):
-            converted_temp = int((temp * 9/5) + 32)
-            print(f"{temp}°C is {converted_temp}°F!")
-        break
+        converted_temp = int((temp * 9/5) + 32)
+        print(f"{temp}°C is {converted_temp}°F!")
+        
 
 choose_conversion_type()
