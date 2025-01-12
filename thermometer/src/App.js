@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Temperature Converter</h1>
       </header>
+      <select>
+        <option value="FtoC">Fahrenheit to Celsius</option>
+        <option value="CtoF">Celsius to Fahrenheit</option>
+      </select>
+      <input placeholder="Enter a number"></input>
     </div>
   );
 }
