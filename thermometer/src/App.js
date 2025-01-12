@@ -1,6 +1,10 @@
 // import './App.css';
+import {useState} from "react"
 
 function App() {
+  const [conversionType, setConversionType] = useState("FtoC")
+  const [temperature, setTemperature] = useState("")
+  const [result, setResult] = useState(null)
   return (
     <div className="App">
       <header className="App-header">
@@ -10,7 +14,7 @@ function App() {
         <option value="FtoC">Fahrenheit to Celsius</option>
         <option value="CtoF">Celsius to Fahrenheit</option>
       </select>
-      <input placeholder="Enter a number"></input>
+      <input type="number" placeholder="Enter a number"></input>
     </div>
   );
 }
