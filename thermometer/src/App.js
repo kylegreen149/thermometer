@@ -13,7 +13,7 @@ function App() {
       convertedTemp = ((temperature - 32) * 5 / 9).toFixed(0)
     }
     else if (conversionType === "CtoF") {
-      convertedTemp = ((temperature - 32) * 5 / 9).toFixed(0)
+      convertedTemp = ((temperature * 9 / 5) + 32).toFixed(0)
     }
     setResult(convertedTemp)
   }
@@ -23,11 +23,16 @@ function App() {
       <header className="App-header">
         <h1>Temperature Converter</h1>
       </header>
-      <select>
-        <option value="FtoC">Fahrenheit to Celsius</option>
-        <option value="CtoF">Celsius to Fahrenheit</option>
-      </select>
-      <input type="number" placeholder="Enter a number"></input>
+      <div>
+        <select value={conversionType} onChange={(e) => {setConversionType(e.target.value)}}>
+          <option value="FtoC">Fahrenheit to Celsius</option>
+          <option value="CtoF">Celsius to Fahrenheit</option>
+        </select>
+      </div>
+        <input type="number" placeholder="Enter a number" value={temperature} onChange={(e) => {setTemperature(e.target.value)}}></input>
+        <button onClick={handleConversion}>Convert Temperature</button>
+        <p>{result}</p>
+
     </div>
   );
 }
