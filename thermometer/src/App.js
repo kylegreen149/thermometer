@@ -31,7 +31,7 @@ function App() {
       </div>
         <input type="number" placeholder="Enter a number" value={temperature} onChange={(e) => {setTemperature(e.target.value)}}></input>
         <button onClick={handleConversion}>Convert Temperature</button>
-        <p>{result}</p>
+        {result !== null && ( <p> {temperature}° {conversionType === "FtoC" ? "Fahrenheit" : "Celsius"}{" "} is {result}°{" "} {conversionType === "FtoC" ? "Celsius" : "Fahrenheit"} </p> )}
 
     </div>
   );
