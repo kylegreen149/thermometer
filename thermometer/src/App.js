@@ -1,21 +1,31 @@
 import './App.css';
-import {useState} from "react"
+import { useState } from "react";
 
 function App() {
-  const [conversionType, setConversionType] = useState("FtoC")
-  const [temperature, setTemperature] = useState("")
-  const [result, setResult] = useState(null)
+  const [conversionType, setConversionType] = useState("FtoC");
+  const [temperature, setTemperature] = useState("");
+  const [result, setResult] = useState(null);
 
-  function handleConversion(e) {
-    e.preventDefault()
+  function handleConversion(temp, type) {
     let convertedTemp;
-    if (conversionType === "FtoC") {
-      convertedTemp = ((temperature - 32) * 5 / 9).toFixed(0)
+    if (type === "FtoC") {
+      convertedTemp = ((temp - 32) * 5) / 9;
+    } else if (type === "CtoF") {
+      convertedTemp = (temp * 9) / 5 + 32;
     }
-    else if (conversionType === "CtoF") {
-      convertedTemp = ((temperature * 9 / 5) + 32).toFixed(0)
-    }
-    setResult(convertedTemp)
+    setResult(convertedTemp.toFixed(0));
+  }
+
+  function handleTemperatureChange(e) {
+    const temp = e.target.value;
+    setTemperature(temp);
+    handleConversion(temp, conversionType);
+  }
+
+  function handleConversionTypeChange(e) {
+    const type = e.target.value;
+    setConversionType(type);
+    handleConversion(temperature, type);
   }
 
   return (
@@ -24,15 +34,27 @@ function App() {
         <h1>Temperature Converter</h1>
       </header>
       <div>
-        <select value={conversionType} onChange={(e) => {setConversionType(e.target.value)}}>
+        <select
+          value={conversionType}
+          onChange={handleConversionTypeChange} 
+        >
           <option value="FtoC">Fahrenheit to Celsius</option>
           <option value="CtoF">Celsius to Fahrenheit</option>
         </select>
       </div>
-        <input type="number" placeholder="Enter a number" value={temperature} onChange={(e) => {setTemperature(e.target.value)}}></input>
-        <button onClick={handleConversion}>Convert Temperature</button>
-        {result !== null && ( <p> {temperature}° {conversionType === "FtoC" ? "Fahrenheit" : "Celsius"}{" "} is {result}°{" "} {conversionType === "FtoC" ? "Celsius" : "Fahrenheit"} </p> )}
-
+      <input
+        type="number"
+        placeholder="Enter a number"
+        value={temperature}
+        onChange={handleTemperatureChange} 
+      ></input>
+      {result !== null && (
+        <p>
+          {temperature}° {conversionType === "FtoC" ? "Fahrenheit" : "Celsius"}{" "}
+          converted is {result}°{" "}
+          {conversionType === "FtoC" ? "Celsius" : "Fahrenheit"}
+        </p>
+      )}
     </div>
   );
 }
