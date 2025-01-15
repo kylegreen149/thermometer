@@ -43,7 +43,7 @@ function App() {
       {result !== null && (
         <p>
           {temperature}° {conversionType === "FtoC" ? "Fahrenheit" : "Celsius"}{" "}
-          converted is {result}°{" "}
+          is {result}°{" "}
           {conversionType === "FtoC" ? "Celsius" : "Fahrenheit"}
         </p>
       )}
