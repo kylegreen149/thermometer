@@ -34,20 +34,12 @@ function App() {
         <h1>Temperature Converter</h1>
       </header>
       <div>
-        <select
-          value={conversionType}
-          onChange={handleConversionTypeChange} 
-        >
+        <select value={conversionType} onChange={handleConversionTypeChange}>
           <option value="FtoC">Fahrenheit to Celsius</option>
           <option value="CtoF">Celsius to Fahrenheit</option>
         </select>
       </div>
-      <input
-        type="number"
-        placeholder="Enter a number"
-        value={temperature}
-        onChange={handleTemperatureChange} 
-      ></input>
+      <input type="number" placeholder="Enter a number" value={temperature} onChange={handleTemperatureChange}></input>
       {result !== null && (
         <p>
           {temperature}° {conversionType === "FtoC" ? "Fahrenheit" : "Celsius"}{" "}

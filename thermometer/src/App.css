@@ -1,4 +1,3 @@
-/* App.css */
 body {
   display: flex;
   justify-content: center;
@@ -6,10 +5,12 @@ body {
   height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
+  background-color: rgba(49, 87, 87, 0.5);
 }
 
 .App {
-  width: 80%;
+  width: 95%; /* Increased the width */
+  max-width: 1200px; /* Added a max-width to maintain a good layout on larger screens */
   text-align: center;
   background-color: #f0f0f0;
   padding: 40px;
@@ -18,7 +19,11 @@ body {
 }
 
 header.App-header {
-  margin-bottom: 30px;
+  margin-bottom: none; /* Reduced margin-bottom to decrease space */
+  padding-bottom: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 input,
